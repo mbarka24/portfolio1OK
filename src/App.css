@@ -1,0 +1,108 @@
+* {
+  font-family: "Ubuntu", sans-serif;
+  font-style: normal;
+  transition: 200ms;
+  scroll-behavior: smooth;
+  cursor: url("./images/normal.cur"), auto;
+}
+*::selection {
+  color: #192e67;
+  background-color: #54d2d4;
+}
+body {
+  position: relative;
+}
+
+.links-bg {
+  background-color: #111f44;
+  top: -60px;
+  z-index: 1;
+}
+
+.light {
+  filter: drop-shadow(-0.3rem 0rem 4rem #54d2d4);
+}
+.lightHover:hover {
+  filter: drop-shadow(-0.3rem 0rem 3rem #54d2d4);
+}
+.cursor {
+  pointer-events: none; /* So the cursor doesn't interfere with other elements */
+  z-index: 9999; /* Ensure it's on top of other elements */
+  box-shadow: 0rem 0rem 15rem #3ea5a6;
+}
+
+.project-image {
+  filter: drop-shadow(0rem 0rem 2rem #54d2d49e);
+}
+
+.hidden-buttons {
+  display: grid;
+  opacity: 0;
+  transition: 0.4s ease-in-out;
+}
+/* scroll icon styling : */
+.mouse {
+	width: 50px;
+	height: 90px;
+	border: 3px solid #333;
+	border-radius: 60px;
+	position: relative;
+	&::before {
+		content: '';
+		width: 12px;
+		height: 12px;
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: #333;
+		border-radius: 50%;
+		opacity: 1;
+		animation: wheel 2s infinite;
+		-webkit-animation: wheel 2s infinite;
+	}
+}
+@keyframes wheel {
+	to {
+		opacity: 0;
+		top: 60px;
+	}
+}
+
+@-webkit-keyframes wheel {
+	to {
+		opacity: 0;
+		top: 60px;
+	}
+}
+/* tootips stylin :  */
+.tooltip {
+  position:relative; /* making the .tooltip span a container for the tooltip text */
+  border-bottom:1px dashed #000; /* little indicater to indicate it's hoverable */
+}
+.tooltip:before {
+  content: attr(data-text); /* here's the magic */
+  position:absolute;
+  
+  /* vertically center */
+  top:50%;
+  transform:translateY(-50%);
+  
+  /* move to right */
+  left:100%;
+  margin-left:15px; /* and add a small left margin */
+  
+  /* basic styles */
+  width:200px;
+  padding:10px;
+  border-radius:10px;
+  background:#000;
+  color: #fff;
+  text-align:center;
+
+  display:none; /* hide by default */
+}
+
+.tooltip:hover:before {
+  display:block;
+}
